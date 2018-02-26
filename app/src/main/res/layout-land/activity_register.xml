@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.marco.racingsnai.ActivityRegister">
+    tools:context="com.example.marco.racingsnai.ActivityRegister"
+    tools:layout_editor_absoluteY="73dp">
 
     <TextView
         android:id="@+id/txtVwUpRegister"
         android:layout_width="315dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="70dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="32dp"
         android:clickable="false"
         android:fontFamily="monospace"
         android:text="@string/insert_your_names"
@@ -22,26 +23,14 @@
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/insName1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/txtVwSubUpRegister"
-        android:layout_width="220dp"
-        android:layout_height="35dp"
-        android:text="@string/insert_your_name_sub"
-        android:textAlignment="center"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtVwUpRegister" />
 
     <EditText
         android:id="@+id/insName1"
         android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="20dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="5dp"
         android:ems="10"
         android:hint="@string/type_name_player1"
         android:inputType="textPersonName"
@@ -51,15 +40,12 @@
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/insName2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/insName2"
         android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="40dp"
         android:ems="10"
         android:hint="@string/type_name_player2"
         android:inputType="textPersonName"
@@ -71,14 +57,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.458" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/insName3"
         android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="@string/type_name_player3"
         android:inputType="textPersonName"
@@ -87,7 +72,7 @@
         android:textAlignment="center"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/insName2" />
 
@@ -95,8 +80,8 @@
         android:id="@+id/btnGoToRace"
         style="@android:style/Widget.Material.Button"
         android:layout_width="300dp"
-        android:layout_height="95dp"
-        android:layout_marginTop="45dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
         android:elevation="0dp"
         android:fontFamily="monospace"
         android:text="@string/let_it_bet"
@@ -106,5 +91,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/insName3" />
+
+    <TextView
+        android:id="@+id/txtVwSubUpRegister"
+        android:layout_width="390dp"
+        android:layout_height="20dp"
+        android:text="@string/insert_your_name_sub"
+        android:textAlignment="center"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtVwUpRegister" />
 
 </android.support.constraint.ConstraintLayout>
