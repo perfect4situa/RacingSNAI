@@ -16,7 +16,7 @@ public class ActivityRegister extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        btnGoToRace.findViewById(R.id.btnGoToRace);
+        btnGoToRace = findViewById(R.id.btnGoToRace);
         btnGoToRace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
