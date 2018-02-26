@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Racing SNAI</string>
-    <string name="insert_your_names">Inserisci i nomi</string>
-    <string name="type_name_player1">Scrivi il nome 1</string>
-    <string name="type_name_player2">Scrivi il nome 2</string>
-    <string name="type_name_player3">Scrivi il nome 3</string>
+    <string name="app_name">Corse SNAI</string>
+    <string name="insert_your_names">Inserire i propri username</string>
+    <string name="insert_your_name_sub">Scrivi i nomi degli scommettitori che vogliono tentare la sorte</string>
+    <string name="type_name_player1">Primo scommettitore</string>
+    <string name="type_name_player2">Secondo scommettitore</string>
+    <string name="type_name_player3">Terzo scommettitore</string>
     <string name="let_it_bet">Scommettiamo</string>
-    <string name="insert_your_name_sub">I nomi degli scommettitori che vogliono tentare la sorte</string>
+    <string name="insert_name_toast">Inserisci almeno un nome</string>
 </resources>
