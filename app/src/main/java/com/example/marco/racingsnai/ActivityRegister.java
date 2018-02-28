@@ -30,7 +30,7 @@ public class ActivityRegister extends AppCompatActivity {
         ins3 = findViewById(R.id.insName3);
         btnGoTo = findViewById(R.id.btnGoToRace);
 
-        ins2.setOnClickListener(new View.OnClickListener() {
+        /*ins2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(ins1.getText().toString().replace(" ", "").isEmpty()) {
@@ -58,7 +58,7 @@ public class ActivityRegister extends AppCompatActivity {
                     ins2.setVisibility(View.VISIBLE);
                 }
             }
-        });
+        });*/
 
         btnGoTo.setOnClickListener(new View.OnClickListener() {
             @Override

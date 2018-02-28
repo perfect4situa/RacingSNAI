@@ -8,4 +8,5 @@
     <string name="type_name_player3">Terzo scommettitore</string>
     <string name="let_it_bet">Scommettiamo</string>
     <string name="insert_name_toast">Inserisci almeno un nome</string>
+    <string name="info_addiction">*Il gioco è vietato ai minori di 18 anni, può causare dipendenza patologica</string>
 </resources>
