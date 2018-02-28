@@ -9,4 +9,8 @@
     <string name="let_it_bet">Let it bet</string>
     <string name="insert_name_toast">Enter at least one name</string>
     <string name="info_addiction">* The game is forbidden for under 18s, it can cause pathological addiction</string>
+    <string name="play_again">Play Again</string>
+    <string name="back">Back</string>
+    <string name="minus">Minus</string>
+    <string name="plus">Plus</string>
 </resources>

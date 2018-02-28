@@ -9,4 +9,8 @@
     <string name="let_it_bet">Scommettiamo</string>
     <string name="insert_name_toast">Inserisci almeno un nome</string>
     <string name="info_addiction">*Il gioco è vietato ai minori di 18 anni, può causare dipendenza patologica</string>
+    <string name="play_again">Gioca Ancora</string>
+    <string name="back">Indietro</string>
+    <string name="minus">Meno</string>
+    <string name="plus">Più</string>
 </resources>

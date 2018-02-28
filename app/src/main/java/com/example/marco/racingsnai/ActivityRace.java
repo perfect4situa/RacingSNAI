@@ -3,9 +3,31 @@ package com.example.marco.racingsnai;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class ActivityRace extends AppCompatActivity {
+
+    Button btnBack;
+    Button btnAgain;
+    EditText txtInfo;
+
+    Button btnPlus1;
+    Button btnPlus2;
+    Button btnPlus3;
+
+    Button btnMinus1;
+    Button btnMinus2;
+    Button btnMinus3;
+
+    EditText txtNm1;
+    EditText txtNm2;
+    EditText txtNm3;
+
+    EditText txtVal1;
+    EditText txtVal2;
+    EditText txtVal3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

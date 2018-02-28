@@ -9,9 +9,9 @@
 
     <TextView
         android:id="@+id/txtVwUpRegister"
-        android:layout_width="315dp"
+        android:layout_width="480dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="25dp"
         android:clickable="false"
         android:fontFamily="monospace"
         android:text="@string/insert_your_names"
@@ -25,6 +25,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtVwSubUpRegister"
+        android:layout_width="400dp"
+        android:layout_height="20dp"
+        android:text="@string/insert_your_name_sub"
+        android:textAlignment="center"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtVwUpRegister" />
 
     <EditText
         android:id="@+id/insName1"
@@ -55,9 +67,9 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48000002" />
 
     <EditText
         android:id="@+id/insName3"
@@ -81,7 +93,6 @@
         style="@android:style/Widget.Material.Button"
         android:layout_width="300dp"
         android:layout_height="60dp"
-        android:layout_marginTop="10dp"
         android:elevation="0dp"
         android:fontFamily="monospace"
         android:text="@string/let_it_bet"
@@ -93,15 +104,17 @@
         app:layout_constraintTop_toBottomOf="@+id/insName3" />
 
     <TextView
-        android:id="@+id/txtVwSubUpRegister"
-        android:layout_width="390dp"
-        android:layout_height="20dp"
-        android:text="@string/insert_your_name_sub"
+        android:id="@+id/txtVwInfo"
+        android:layout_width="420dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/info_addiction"
         android:textAlignment="center"
+        android:textSize="8sp"
         android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtVwUpRegister" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
