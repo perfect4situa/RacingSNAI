@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context="com.example.marco.racingsnai.ActivityRace">
 
+    <TextView
+        android:id="@+id/txtInfo"
+        android:layout_width="290dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ProgressBar
         android:id="@+id/progressBar1"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -17,7 +29,7 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/txtInfo" />
 
     <ProgressBar
         android:id="@+id/progressBar2"
@@ -93,7 +105,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         android:singleLine="true"
-        android:text="0.00"
+        android:text="0.0"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="30sp"
@@ -145,7 +157,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:singleLine="true"
-        android:text="0.00"
+        android:text="0.0"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="30sp"
@@ -198,7 +210,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:singleLine="true"
-        android:text="0.00"
+        android:text="0.0"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textSize="30sp"
@@ -240,17 +252,5 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="290dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="16dp"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
