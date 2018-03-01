@@ -11,7 +11,7 @@
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="300dp"
         android:layout_height="30dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="45dp"
         android:indeterminate="false"
         android:max="1000"
         android:progressTint="@android:color/black"
@@ -50,16 +50,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar2" />
 
-    <TextView
-        android:id="@+id/txtVwInfo"
+    <Button
+        android:id="@+id/btnStart"
         android:layout_width="300dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="16dp"
-        android:text="Info Race"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/start"
         android:textAlignment="center"
-        android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBar3" />
 
@@ -70,18 +70,33 @@
         android:layout_marginEnd="24dp"
         android:layout_marginTop="32dp"
         android:text="@string/plus"
+        android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/btnPlus2"
-        app:layout_constraintTop_toBottomOf="@+id/txtVwInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 
     <Button
-        android:id="@+id/btnMinus2"
+        android:id="@+id/btnMinus1"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_marginEnd="24dp"
         android:text="@string/minus"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/val2" />
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/btnMinus2"
+        app:layout_constraintTop_toBottomOf="@+id/val1" />
+
+    <TextView
+        android:id="@+id/txtNm1"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Name1"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btnPlus1"
+        app:layout_constraintEnd_toStartOf="@+id/txtNm2"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 
     <TextView
         android:id="@+id/val1"
@@ -103,24 +118,28 @@
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
         android:text="@string/plus"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtVwInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 
     <Button
-        android:id="@+id/btnMinus1"
+        android:id="@+id/btnMinus2"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginEnd="24dp"
         android:text="@string/minus"
-        app:layout_constraintEnd_toStartOf="@+id/btnMinus2"
-        app:layout_constraintTop_toBottomOf="@+id/val1" />
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/val2" />
 
     <TextView
         android:id="@+id/txtNm2"
         android:layout_width="80dp"
         android:layout_height="20dp"
+        android:layout_marginTop="8dp"
         android:text="Name2"
         android:textAlignment="center"
         android:textAllCaps="false"
@@ -129,7 +148,8 @@
         app:layout_constraintBottom_toTopOf="@+id/btnPlus2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 
     <TextView
         android:id="@+id/val2"
@@ -153,8 +173,9 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:text="@string/plus"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/btnPlus2"
-        app:layout_constraintTop_toBottomOf="@+id/txtVwInfo" />
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 
     <Button
         android:id="@+id/btnMinus3"
@@ -162,8 +183,23 @@
         android:layout_height="70dp"
         android:layout_marginStart="24dp"
         android:text="@string/minus"
+        android:textAlignment="center"
         app:layout_constraintStart_toEndOf="@+id/btnMinus2"
         app:layout_constraintTop_toBottomOf="@+id/val3" />
+
+    <TextView
+        android:id="@+id/txtNm3"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Name3"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/btnPlus3"
+        app:layout_constraintStart_toEndOf="@+id/txtNm2"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 
     <TextView
         android:id="@+id/val3"
@@ -202,29 +238,5 @@
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/txtNm1"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="16dp"
-        android:text="Name1"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintEnd_toStartOf="@+id/txtNm2"
-        tools:layout_editor_absoluteY="224dp" />
-
-    <TextView
-        android:id="@+id/txtNm3"
-        android:layout_width="80dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="16dp"
-        android:text="Name3"
-        android:textAlignment="center"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintStart_toEndOf="@+id/txtNm2"
-        tools:layout_editor_absoluteY="224dp" />
 
 </android.support.constraint.ConstraintLayout>

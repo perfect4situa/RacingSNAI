@@ -32,7 +32,7 @@ public class ActivityRegister extends AppCompatActivity {
 
         /*ins2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 if(ins1.getText().toString().replace(" ", "").isEmpty()) {
                     Animation shake = AnimationUtils.loadAnimation(ActivityRegister.this, R.anim.shake);
                     ins2.startAnimation(shake);
@@ -47,7 +47,7 @@ public class ActivityRegister extends AppCompatActivity {
 
         ins3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 if(ins1.getText().toString().replace(" ", "").isEmpty() || ins2.getText().toString().replace(" ", "").isEmpty()) {
                     Animation shake = AnimationUtils.loadAnimation(ActivityRegister.this, R.anim.shake);
                     ins3.startAnimation(shake);
@@ -62,7 +62,7 @@ public class ActivityRegister extends AppCompatActivity {
 
         btnGoTo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 String user1 = ins1.getText().toString().replace(" ", "");
                 String user2 = ins2.getText().toString().replace(" ", "");
                 String user3 = ins3.getText().toString().replace(" ", "");
