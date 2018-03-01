@@ -100,6 +100,7 @@ public class ActivityRace extends AppCompatActivity {
                 val = val + 0.01;
                 Toast.makeText(getApplicationContext(), "" + val, Toast.LENGTH_SHORT).show();
                 txtVal1.setText(val.toString().substring(0, 4));
+
             }
         });
 
