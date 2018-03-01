@@ -19,10 +19,6 @@ public class ActivityRace extends AppCompatActivity {
     ProgressBar pB2;
     ProgressBar pB3;
 
-    TextView txtNm1;
-    TextView txtNm2;
-    TextView txtNm3;
-
     TextView txtVal1;
     TextView txtVal2;
     TextView txtVal3;
@@ -48,6 +44,8 @@ public class ActivityRace extends AppCompatActivity {
 
         Bundle dataNames = getIntent().getExtras();
 
+        String name = dataNames.getString("name");
+
         pB1 = findViewById(R.id.progressBar1);
         pB2 = findViewById(R.id.progressBar2);
         pB3 = findViewById(R.id.progressBar3);
@@ -55,10 +53,6 @@ public class ActivityRace extends AppCompatActivity {
         btnStart = findViewById(R.id.btnStart);
         btnBack = findViewById(R.id.btnBack);
         btnAgain = findViewById(R.id.btnAgain);
-
-        txtNm1 = findViewById(R.id.txtNm1);
-        txtNm2 = findViewById(R.id.txtNm2);
-        txtNm3 = findViewById(R.id.txtNm3);
 
         txtVal1 = findViewById(R.id.val1);
         txtVal2 = findViewById(R.id.val2);
@@ -72,9 +66,14 @@ public class ActivityRace extends AppCompatActivity {
         btnMinus2 = findViewById(R.id.btnMinus2);
         btnMinus3 = findViewById(R.id.btnMinus3);
 
-        String name1 = dataNames.getString("name1");
-        String name2 = dataNames.getString("name2");
-        String name3 = dataNames.getString("name3");
+        Toast.makeText(getApplicationContext(), "Welcome " + name, Toast.LENGTH_SHORT).show();
+
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +83,88 @@ public class ActivityRace extends AppCompatActivity {
             }
         });
 
-        Toast.makeText(getApplicationContext(), name1 + " - " + name2 + " - " + name3, Toast.LENGTH_SHORT).show();
+        btnAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pB1.setProgress(20);
+                pB2.setProgress(20);
+                pB3.setProgress(20);
+            }
+        });
+
+        btnPlus1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Double val = Double.parseDouble(txtVal1.getText().toString());
+                Toast.makeText(getApplicationContext(), "" + val, Toast.LENGTH_SHORT).show();
+                val = val + 0.01;
+                Toast.makeText(getApplicationContext(), "" + val, Toast.LENGTH_SHORT).show();
+                txtVal1.setText(val.toString().substring(0, 4));
+            }
+        });
+
+        btnPlus2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Double val = Double.parseDouble(txtVal2.getText().toString());
+                val = val + 0.01;
+                txtVal2.setText(val.toString());
+            }
+        });
+
+        btnPlus3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Double val = Double.parseDouble(txtVal3.getText().toString());
+                val = val + 0.01;
+                txtVal3.setText(val.toString());
+            }
+        });
+
+        btnMinus1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Double val = Double.parseDouble(txtVal1.getText().toString());
+
+                if((val - 0.01) >= 0) {
+                    val = val - 0.01;
+                    txtVal1.setText(val.toString());
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "You can't", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnMinus2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Double val = Double.parseDouble(txtVal2.getText().toString());
+
+                if((val - 0.01) >= 0) {
+                    val = val - 0.01;
+                    txtVal2.setText(val.toString());
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "You can't", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        btnMinus3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Double val = Double.parseDouble(txtVal3.getText().toString());
+
+                if((val - 0.01) >= 0) {
+                    val = val - 0.01;
+                    txtVal3.setText(val.toString());
+                }
+                else {
+                    Toast.makeText(getApplicationContext(), "You can't", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override

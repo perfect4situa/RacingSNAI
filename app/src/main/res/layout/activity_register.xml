@@ -8,27 +8,27 @@
 
     <TextView
         android:id="@+id/txtVwUpRegister"
-        android:layout_width="343dp"
+        android:layout_width="345dp"
         android:layout_height="35dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="120dp"
         android:clickable="false"
-        android:text="@string/insert_your_names"
+        android:text="@string/insert_username"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textAppearance="@android:style/TextAppearance.Material.Title"
         android:textSize="24sp"
         android:textStyle="italic"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/insName1"
+        app:layout_constraintBottom_toTopOf="@+id/insName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtVwSubUpRegister"
-        android:layout_width="220dp"
-        android:layout_height="35dp"
-        android:text="@string/insert_your_name_sub"
+        android:layout_width="260dp"
+        android:layout_height="20dp"
+        android:text="@string/insert_username_sub"
         android:textAlignment="center"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,30 +37,11 @@
         app:layout_constraintTop_toBottomOf="@+id/txtVwUpRegister" />
 
     <EditText
-        android:id="@+id/insName1"
+        android:id="@+id/insName"
         android:layout_width="250dp"
         android:layout_height="45dp"
-        android:layout_marginBottom="20dp"
         android:ems="10"
-        android:hint="@string/type_name_player1"
-        android:inputType="textPersonName"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:textAlignment="center"
-        android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/insName2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/insName2"
-        android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:ems="10"
-        android:hint="@string/type_name_player2"
+        android:hint="@string/type_username"
         android:inputType="textPersonName"
         android:selectAllOnFocus="true"
         android:singleLine="true"
@@ -70,32 +51,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.458" />
-
-    <EditText
-        android:id="@+id/insName3"
-        android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/type_name_player3"
-        android:inputType="textPersonName"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:textAlignment="center"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/insName2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnGoToRace"
+        android:id="@+id/btnGoTo"
         style="@android:style/Widget.Material.Button"
         android:layout_width="300dp"
         android:layout_height="95dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="80dp"
         android:elevation="0dp"
         android:fontFamily="monospace"
         android:text="@string/let_it_bet"
@@ -103,8 +66,9 @@
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/insName3" />
+        app:layout_constraintTop_toBottomOf="@+id/insName" />
 
     <TextView
         android:id="@+id/txtVwInfo"

@@ -13,9 +13,7 @@ import android.widget.Toast;
 
 public class ActivityRegister extends AppCompatActivity {
 
-    EditText ins1;
-    EditText ins2;
-    EditText ins3;
+    EditText insName;
     Button btnGoTo;
 
     @Override
@@ -25,10 +23,29 @@ public class ActivityRegister extends AppCompatActivity {
 
         Log.i("Activity status", "onCreate()");
 
-        ins1 = findViewById(R.id.insName1);
-        ins2 = findViewById(R.id.insName2);
-        ins3 = findViewById(R.id.insName3);
-        btnGoTo = findViewById(R.id.btnGoToRace);
+        insName = findViewById(R.id.insName);
+        btnGoTo = findViewById(R.id.btnGoTo);
+
+        btnGoTo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String user = insName.getText().toString().replace(" ", "");
+
+                if(user.isEmpty()) {
+                    Animation shake = AnimationUtils.loadAnimation(ActivityRegister.this, R.anim.shake);
+                    btnGoTo.startAnimation(shake);
+
+                    Toast.makeText(getApplicationContext(), R.string.insert_name_toast, Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent i = new Intent(ActivityRegister.this, ActivityRace.class);
+
+                    i.putExtra("name", user);
+
+                    startActivity(i);
+                }
+            }
+        });
 
         /*ins2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,31 +76,6 @@ public class ActivityRegister extends AppCompatActivity {
                 }
             }
         });*/
-
-        btnGoTo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String user1 = ins1.getText().toString().replace(" ", "");
-                String user2 = ins2.getText().toString().replace(" ", "");
-                String user3 = ins3.getText().toString().replace(" ", "");
-
-                if((user1 + user2 + user3).isEmpty()) {
-                    Animation shake = AnimationUtils.loadAnimation(ActivityRegister.this, R.anim.shake);
-                    btnGoTo.startAnimation(shake);
-
-                    Toast.makeText(getApplicationContext(), R.string.insert_name_toast, Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Intent i = new Intent(ActivityRegister.this, ActivityRace.class);
-
-                    i.putExtra("name1", user1);
-                    i.putExtra("name2", user2);
-                    i.putExtra("name3", user3);
-
-                    startActivity(i);
-                }
-            }
-        });
     }
 
     @Override
