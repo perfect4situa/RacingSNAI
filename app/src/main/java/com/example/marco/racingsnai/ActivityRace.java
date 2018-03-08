@@ -1,27 +1,21 @@
 package com.example.marco.racingsnai;
 
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.os.Handler;
-import android.service.autofill.FillResponse;
+import android.os.AsyncTask;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 public class ActivityRace extends AppCompatActivity {
 
     String name;
     TextView txtInfo;
-    int flagWin;
-    String res;
 
     ProgressBar pB1;
     ProgressBar pB2;
@@ -82,7 +76,8 @@ public class ActivityRace extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.i("FUNZIOna", "prima del THREAD");
-                final Thread progress = new Thread(new Runnable() {
+                new BackgroundTask().execute();
+                /*Thread progress = new Thread(new Runnable() {
                     @Override
                     public void run() {
                         int ran1;
@@ -150,7 +145,7 @@ public class ActivityRace extends AppCompatActivity {
 
                 progress.start();
 
-                /*Thread winner = new Thread(new Runnable() {
+                Thread winner = new Thread(new Runnable() {
                     @Override
                     public void run() {
 
@@ -163,7 +158,7 @@ public class ActivityRace extends AppCompatActivity {
                         res = name + ", " + ris[flagWin] + " win the race";
                     }
                 });
-                Log.i("FINEE", "risultato " + res);*/
+                Log.i("FINEE", "risultato " + res);
                 String ris[] = new String[]{
                         getResources().getString(R.string.too_much_security),
                         getResources().getString(R.string.human_hate),
@@ -174,9 +169,9 @@ public class ActivityRace extends AppCompatActivity {
                 AlertDialog.Builder alert = new AlertDialog.Builder(ActivityRace.this);
                 alert.setTitle("LA TUA VINCITA");
                 alert.setMessage(res);
-                //AlertDialog msg = alert.create();
+                AlertDialog msg = alert.create();
                 alert.show();
-                //txtInfo.setText(res);
+                txtInfo.setText(res);*/
             }
         });
 
@@ -207,7 +202,6 @@ public class ActivityRace extends AppCompatActivity {
                 Double val = Double.parseDouble(txtVal1.getText().toString());
                 val = Math.round((val + 0.1)*10.0)/10.0;
                 txtVal1.setText(val.toString());
-
             }
         });
 
@@ -324,6 +318,99 @@ public class ActivityRace extends AppCompatActivity {
         Log.i("Activity status", "onSaveInstanceState()");
 
         outState.putString("", "");
+    }
+
+    private class BackgroundTask extends AsyncTask<Void, Integer[], Integer[]> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            btnAgain.setClickable(false);
+            btnPlus1.setClickable(false);
+            btnPlus2.setClickable(false);
+            btnPlus3.setClickable(false);
+            btnMinus1.setClickable(false);
+            btnMinus2.setClickable(false);
+            btnMinus3.setClickable(false);
+        }
+
+        @Override
+        protected Integer[] doInBackground(Void... voids) {
+            int ran1;
+            int ran2;
+            int ran3;
+            int flagWin = -1;
+
+            while ((pB1.getProgress() < 1000) || (pB2.getProgress() < 1000) || (pB3.getProgress() < 1000)) {
+                try {
+                    Thread.sleep(150);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                ran1 = (int) ((Math.random() * 10) + (Math.random() * 10) + (Math.random() * 10) + (Math.random() * 10));
+                ran2 = (int) ((Math.random() * 10) + (Math.random() * 10) + (Math.random() * 10) + (Math.random() * 10));
+                ran3 = (int) ((Math.random() * 10) + (Math.random() * 10) + (Math.random() * 10) + (Math.random() * 10));
+
+                Log.i("FLAG", "" + flagWin);
+                if(flagWin < 0) {
+                    if((pB1.getProgress() + ran1) >= 1000) {
+                        flagWin = 0;
+                        Log.i("PASS", "" + flagWin);
+                    }
+                    else {
+                        if((pB2.getProgress() + ran1) >= 1000) {
+                            flagWin = 1;
+                            Log.i("PASS", "" + flagWin);
+                        }
+                        else {
+                            if((pB3.getProgress() + ran1) >= 1000) {
+                                flagWin = 2;
+                                Log.i("PASS", "" + flagWin);
+                            }
+                        }
+                    }
+                }
+
+                publishProgress(new Integer[] {
+                        ran1,
+                        ran2,
+                        ran3
+                });
+            }
+
+            return new Integer[] {
+                flagWin
+            };
+        }
+
+        protected void onProgressUpdate(Integer[] values) {
+            super.onProgressUpdate();
+
+            pB1.setProgress(pB1.getProgress() + values[1].intValue());
+            pB2.setProgress(pB2.getProgress() + values[2].intValue());
+            pB3.setProgress(pB3.getProgress() + values[3].intValue());
+        }
+
+        protected void onPostExecute(Integer flagWin) {
+            String ris[] = new String[]{
+                    getString(R.string.too_much_security),
+                    getString(R.string.human_hate),
+                    getString(R.string.industry_4_0),
+            };
+
+            String res = name + ", " + ris[flagWin.intValue()] + " win the race";
+
+            AlertDialog.Builder alert = new AlertDialog.Builder(ActivityRace.this);
+            alert.setTitle(R.string.msg_win);
+            alert.setMessage(res);
+            //AlertDialog msg = alert.create();
+            alert.show();
+
+            txtInfo.setText(res);
+        }
+
     }
 
 }
