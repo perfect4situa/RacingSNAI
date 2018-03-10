@@ -87,8 +87,7 @@ public class ActivityRace extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ActivityRace.this, ActivityRegister.class);
-                startActivity(i);
+                finish();
             }
         });
 
@@ -292,9 +291,9 @@ public class ActivityRace extends AppCompatActivity {
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
 
-            pB1.setProgress(pB1.getProgress() + values[1]);
-            pB2.setProgress(pB2.getProgress() + values[2]);
-            pB3.setProgress(pB3.getProgress() + values[3]);
+            pB1.setProgress(pB1.getProgress() + values[0]);
+            pB2.setProgress(pB2.getProgress() + values[1]);
+            pB3.setProgress(pB3.getProgress() + values[2]);
         }
 
         @Override
