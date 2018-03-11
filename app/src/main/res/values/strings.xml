@@ -15,8 +15,12 @@
     <string name="minus">Minus</string>
     <string name="back">Back</string>
     <string name="play_again">Play Again</string>
-    <string name="msg_win">YOUR WINNINGS</string>
-    <string name="info_game">What will bring the world to ruin</string>
+    <string name="msg_win">YOUR WIN</string>
+    <string name="info_game">What will bring the world to ruin?</string>
     <string name="not_allowed">You can\'t</string>
     <string name="error_name">Error, can\'t find your name</string>
+    <string name="welcome">Welcome</string>
+    <string name="got_it">Got it!</string>
+    <string name="str_win">win the race</string>
+    <string name="msg_winner">THE WINNER</string>
 </resources>

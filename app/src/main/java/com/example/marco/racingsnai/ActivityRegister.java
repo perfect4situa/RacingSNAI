@@ -46,36 +46,6 @@ public class ActivityRegister extends AppCompatActivity {
                 }
             }
         });
-
-        /*ins2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(ins1.getText().toString().replace(" ", "").isEmpty()) {
-                    Animation shake = AnimationUtils.loadAnimation(ActivityRegister.this, R.anim.shake);
-                    ins2.startAnimation(shake);
-
-                    Toast.makeText(getApplicationContext(), R.string.insert_name_toast, Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    ins2.setVisibility(View.VISIBLE);
-                }
-            }
-        });
-
-        ins3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(ins1.getText().toString().replace(" ", "").isEmpty() || ins2.getText().toString().replace(" ", "").isEmpty()) {
-                    Animation shake = AnimationUtils.loadAnimation(ActivityRegister.this, R.anim.shake);
-                    ins3.startAnimation(shake);
-
-                    Toast.makeText(getApplicationContext(), R.string.insert_name_toast, Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    ins2.setVisibility(View.VISIBLE);
-                }
-            }
-        });*/
     }
 
     @Override
