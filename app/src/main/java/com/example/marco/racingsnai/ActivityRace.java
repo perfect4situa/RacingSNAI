@@ -196,6 +196,7 @@ public class ActivityRace extends AppCompatActivity {
         btnMinus3 = findViewById(R.id.btnMinus3);
     }
 
+    //Increase bet values
     private void increaseDecimal(TextView numVal) {
         Double val = Double.parseDouble(numVal.getText().toString());
 
@@ -208,6 +209,7 @@ public class ActivityRace extends AppCompatActivity {
         }
     }
 
+    //Decrease bet values
     private void reduceDecimal(TextView numVal) {
         Double val = Double.parseDouble(numVal.getText().toString());
 
@@ -232,7 +234,8 @@ public class ActivityRace extends AppCompatActivity {
         numVal3.setText("0.0");
     }
 
-    private double gameWin(Integer[] flagWin) {
+    //Calculate win
+    private double[] gameWin(Integer[] flagWin) {
         Double val1 = Double.parseDouble(numVal1.getText().toString());
         Double val2 = Double.parseDouble(numVal2.getText().toString());
         Double val3 = Double.parseDouble(numVal3.getText().toString());
@@ -281,15 +284,17 @@ public class ActivityRace extends AppCompatActivity {
             }
         }
 
-        return val1 + val2 + val3;
+        return new double[] {val1, val2, val3};
     }
 
+    //Start race and get results
     private class BackgroundTask extends AsyncTask<Void, Integer, Integer[]> {
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
 
+            //Disable bet buttons
             btnAgain.setClickable(false);
             btnPlus1.setClickable(false);
             btnPlus2.setClickable(false);
@@ -317,26 +322,56 @@ public class ActivityRace extends AppCompatActivity {
                 ran1 = (int) ((Math.random() * 10) + (Math.random() * 10) + (Math.random() * 10) + (Math.random() * 10));
                 ran2 = (int) ((Math.random() * 10) + (Math.random() * 10) + (Math.random() * 10) + (Math.random() * 10));
                 ran3 = (int) ((Math.random() * 10) + (Math.random() * 10) + (Math.random() * 10) + (Math.random() * 10));
-                //aggiustare assegnazione flag
+
+                //Check winners
                 if(count < flagWin.length) {
                     if((pB1.getProgress() + ran1) >= 1000) {
-                        flagWin[0] = 0;
-                        count++;
+                        boolean ok = true;
+
+                        for(Integer val : flagWin) {
+                            if(val == 0) {
+                                ok = false;
+                            }
+                        }
+
+                        if(ok) {
+                            flagWin[count] = 0;
+                            count++;
+                        }
                     }
-                    else {
-                        if((pB2.getProgress() + ran2) >= 1000) {
+
+                    if((pB2.getProgress() + ran2) >= 1000) {
+                        boolean ok = true;
+
+                        for(Integer val : flagWin) {
+                            if(val == 1) {
+                                ok = false;
+                            }
+                        }
+
+                        if(ok) {
                             flagWin[count] = 1;
                             count++;
                         }
-                        else {
-                            if((pB3.getProgress() + ran3) >= 1000) {
-                                flagWin[count] = 2;
-                                count++;
+                    }
+
+                    if((pB3.getProgress() + ran3) >= 1000) {
+                        boolean ok = true;
+
+                        for(Integer val : flagWin) {
+                            if(val == 2) {
+                                ok = false;
                             }
+                        }
+
+                        if(ok) {
+                            flagWin[count] = 2;
+                            count++;
                         }
                     }
                 }
 
+                //Update progress
                 publishProgress(ran1, ran2, ran3);
             }
 
@@ -356,23 +391,29 @@ public class ActivityRace extends AppCompatActivity {
         protected void onPostExecute(final Integer... flagWin) {
             super.onPostExecute(flagWin);
 
-            String ris[] = new String[]{
+            final String ris[] = new String[]{
                     getString(R.string.too_much_security),
                     getString(R.string.industry_4_0),
                     getString(R.string.human_hate)
             };
 
+            final double wins[] = gameWin(flagWin);
+
             String res = name + ", " + ris[flagWin[0]] + " " + getString(R.string.str_win);
 
+            //Show results
             AlertDialog.Builder builder = new AlertDialog.Builder(ActivityRace.this);
             builder.setTitle(R.string.msg_winner);
-            builder.setMessage("1° " + ris[flagWin[0]] + ", 2° " + ris[flagWin[1]] + ", 3° " + ris[flagWin[1]]);
+            builder.setMessage("1° " + ris[flagWin[0]] + ",\n2° " + ris[flagWin[1]] + ",\n3° " + ris[flagWin[2]]);
             builder.setCancelable(false);
             builder.setPositiveButton(R.string.got_it, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(ActivityRace.this);
                     builder.setTitle(R.string.msg_win);
-                    builder.setMessage(gameWin(flagWin) + " $");
+                    builder.setMessage(ris[0] + ": " + Math.round((wins[0])*100.0)/100.0 + " $"
+                            + "\n" + ris[1] + ": " + Math.round((wins[1])*100.0)/100.0 + " $"
+                            + "\n" + ris[2] + ": " + Math.round((wins[2])*100.0)/100.0 + " $"
+                            + "\n" + getString(R.string.str_total) + ": " + Math.round((wins[0] + wins[1] + wins[2])*100.0)/100.0);
                     builder.setCancelable(false);
                     builder.setPositiveButton(R.string.got_it, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
@@ -386,6 +427,7 @@ public class ActivityRace extends AppCompatActivity {
 
             txtVwInfo.setText(res);
 
+            //Enable bet buttons
             btnAgain.setClickable(true);
             btnPlus1.setClickable(true);
             btnPlus2.setClickable(true);

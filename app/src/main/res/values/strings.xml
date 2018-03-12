@@ -23,4 +23,5 @@
     <string name="got_it">Got it!</string>
     <string name="str_win">win the race</string>
     <string name="msg_winner">THE WINNER</string>
+    <string name="str_total">Total</string>
 </resources>

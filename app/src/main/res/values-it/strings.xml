@@ -23,4 +23,5 @@
     <string name="msg_winner">IL VINCITORE</string>
     <string name="got_it">Capito!</string>
     <string name="str_win">" ha vinto la gara"</string>
+    <string name="str_total">Totale</string>
 </resources>
