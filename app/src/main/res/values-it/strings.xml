@@ -22,6 +22,6 @@
     <string name="msg_winner">IL VINCITORE</string>
     <string name="got_it">Capito!</string>
     <string name="win">" ha vinto la gara"</string>
-    <string name="str_total">Totale</string>
+    <string name="str_total">Totale vincita</string>
     <string name="reset">Resetta</string>
 </resources>

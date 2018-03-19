@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Raza SNAI</string>
+    <string name="insert_username">Ingrese su nombre de usuario</string>
+    <string name="insert_username_sub">Escriba el nombre del apostador</string>
+    <string name="type_username">Escriba su nombre de usuario</string>
+    <string name="info_addiction">* El juego está prohibido para menores de 18 años, puede causar adicción patológica</string>
+    <string name="let_it_bet">Apostamos</string>
+    <string name="insert_name_toast">Ingrese su nombre</string>
+    <string name="start">Empieza</string>
+    <string name="human_hate">Odio humano</string>
+    <string name="industry_4_0">Industria 4.0</string>
+    <string name="too_much_security">Demasiada seguridad</string>
+    <string name="plus">Más</string>
+    <string name="minus">Meno</string>
+    <string name="back">Espalda</string>
+    <string name="msg_win">Tus ganancias</string>
+    <string name="info_game">¿Qué traerá el mundo a la ruina?</string>
+    <string name="not_allowed">No permitido</string>
+    <string name="error_name">Error, no se puede encontrar el nombre de usuario</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="got_it">Entendido!</string>
+    <string name="win">ganó la carrera</string>
+    <string name="msg_winner">EL GANADOR</string>
+    <string name="reset">Reajustar</string>
+    <string name="str_total">Ganancia total</string>
+</resources>
