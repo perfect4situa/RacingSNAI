@@ -13,7 +13,6 @@
     <string name="plus">Più</string>
     <string name="minus">Meno</string>
     <string name="back">Indietro</string>
-    <string name="play_again">Rigioca</string>
     <string name="insert_name_toast">Inserisci il tuo nome</string>
     <string name="msg_win">La tua vincita</string>
     <string name="info_game">Cosa porterà il mondo alla rovina?</string>
@@ -22,6 +21,7 @@
     <string name="welcome">Benvenuto</string>
     <string name="msg_winner">IL VINCITORE</string>
     <string name="got_it">Capito!</string>
-    <string name="str_win">" ha vinto la gara"</string>
+    <string name="win">" ha vinto la gara"</string>
     <string name="str_total">Totale</string>
+    <string name="reset">Resetta</string>
 </resources>

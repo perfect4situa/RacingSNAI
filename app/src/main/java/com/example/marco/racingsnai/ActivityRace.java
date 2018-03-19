@@ -27,7 +27,7 @@ public class ActivityRace extends AppCompatActivity {
 
     protected Button btnStart;
     protected Button btnBack;
-    protected Button btnAgain;
+    protected Button btnReset;
 
     protected Button btnPlus1;
     protected Button btnPlus2;
@@ -71,7 +71,7 @@ public class ActivityRace extends AppCompatActivity {
             }
         });
 
-        btnAgain.setOnClickListener(new View.OnClickListener() {
+        btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 resetRace();
@@ -181,7 +181,7 @@ public class ActivityRace extends AppCompatActivity {
 
         btnStart = findViewById(R.id.btnStart);
         btnBack = findViewById(R.id.btnBack);
-        btnAgain = findViewById(R.id.btnAgain);
+        btnReset = findViewById(R.id.btnReset);
 
         numVal1 = findViewById(R.id.val1);
         numVal2 = findViewById(R.id.val2);
@@ -294,8 +294,14 @@ public class ActivityRace extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
+            txtVwInfo.setText(R.string.info_game);
+
+            pB1.setProgress(0);
+            pB2.setProgress(0);
+            pB3.setProgress(0);
+
             //Disable bet buttons
-            btnAgain.setClickable(false);
+            btnReset.setClickable(false);
             btnPlus1.setClickable(false);
             btnPlus2.setClickable(false);
             btnPlus3.setClickable(false);
@@ -399,7 +405,7 @@ public class ActivityRace extends AppCompatActivity {
 
             final double wins[] = gameWin(flagWin);
 
-            String res = name + ", " + ris[flagWin[0]] + " " + getString(R.string.str_win);
+            String res = name + ", " + ris[flagWin[0]] + " " + getString(R.string.win);
 
             //Show results
             AlertDialog.Builder builder = new AlertDialog.Builder(ActivityRace.this);
@@ -408,6 +414,7 @@ public class ActivityRace extends AppCompatActivity {
             builder.setCancelable(false);
             builder.setPositiveButton(R.string.got_it, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
+                    dialog.cancel();
                     AlertDialog.Builder builder = new AlertDialog.Builder(ActivityRace.this);
                     builder.setTitle(R.string.msg_win);
                     builder.setMessage(ris[0] + ": " + Math.round((wins[0])*100.0)/100.0 + " $"
@@ -417,7 +424,7 @@ public class ActivityRace extends AppCompatActivity {
                     builder.setCancelable(false);
                     builder.setPositiveButton(R.string.got_it, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            resetRace();
+                            dialog.cancel();
                         }
                     });
                     builder.create().show();
@@ -428,7 +435,7 @@ public class ActivityRace extends AppCompatActivity {
             txtVwInfo.setText(res);
 
             //Enable bet buttons
-            btnAgain.setClickable(true);
+            btnReset.setClickable(true);
             btnPlus1.setClickable(true);
             btnPlus2.setClickable(true);
             btnPlus3.setClickable(true);
@@ -440,8 +447,6 @@ public class ActivityRace extends AppCompatActivity {
         @Override
         protected void onCancelled() {
             super.onCancelled();
-
-            resetRace();
         }
     }
 
