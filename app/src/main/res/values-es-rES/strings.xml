@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Raza SNAI</string>
+    <string name="app_name">El Final</string>
     <string name="insert_username">Ingrese su nombre de usuario</string>
     <string name="insert_username_sub">Escriba el nombre del apostador</string>
     <string name="type_username">Escriba su nombre de usuario</string>
