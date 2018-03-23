@@ -102,21 +102,21 @@ public class ActivityRace extends AppCompatActivity {
         btnMinus1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reduceDecimal(numVal1);
+                decreaseDecimal(numVal1);
             }
         });
 
         btnMinus2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reduceDecimal(numVal2);
+                decreaseDecimal(numVal2);
             }
         });
 
         btnMinus3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reduceDecimal(numVal3);
+                decreaseDecimal(numVal3);
             }
         });
     }
@@ -163,15 +163,6 @@ public class ActivityRace extends AppCompatActivity {
         Log.i("Activity status", "onDestroy()");
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        Log.i("Activity status", "onSaveInstanceState()");
-
-        outState.putString("", "");
-    }
-
     private void assignVariables() {
         txtVwInfo = findViewById(R.id.txtVwInfo);
 
@@ -210,7 +201,7 @@ public class ActivityRace extends AppCompatActivity {
     }
 
     //Decrease bet values
-    private void reduceDecimal(TextView numVal) {
+    private void decreaseDecimal(TextView numVal) {
         Double val = Double.parseDouble(numVal.getText().toString());
 
         if(Math.round((val - 0.1)*10.0)/10.0 >= 0) {

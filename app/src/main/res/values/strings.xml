@@ -24,4 +24,7 @@
     <string name="msg_winner">THE WINNER</string>
     <string name="str_total">Total win</string>
     <string name="reset">Reset</string>
+    <string name="welcomeBack">Welcome back</string>
+    <string name="notYou">Are not</string>
+    <string name="longUser">Your name is too long</string>
 </resources>

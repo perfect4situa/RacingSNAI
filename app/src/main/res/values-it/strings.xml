@@ -24,4 +24,7 @@
     <string name="win">" ha vinto la gara"</string>
     <string name="str_total">Totale vincita</string>
     <string name="reset">Resetta</string>
+    <string name="welcomeBack">Bentornato</string>
+    <string name="notYou">Non sei</string>
+    <string name="longUser">Il tuo nome è troppo lungo</string>
 </resources>

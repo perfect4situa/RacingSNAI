@@ -1,6 +1,8 @@
 package com.example.marco.racingsnai;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,12 +11,16 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ActivityRegister extends AppCompatActivity {
 
+    TextView title;
+    TextView subTitle;
     EditText insName;
     Button btnGoTo;
+    String user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,21 +29,43 @@ public class ActivityRegister extends AppCompatActivity {
 
         Log.i("Activity status", "onCreate()");
 
+        title = findViewById(R.id.txtVwUpRegister);
+        subTitle = findViewById(R.id.txtVwSubUpRegister);
         insName = findViewById(R.id.insName);
         btnGoTo = findViewById(R.id.btnGoTo);
+
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        user = sharedPreferences.getString("user", "");
+        Log.i("USER status", user + "");
+
+        if(!user.isEmpty()) {
+            title.setText(getString(R.string.welcomeBack) + ", " + user);
+            subTitle.setText(getString(R.string.notYou) + " " + user + "? " + getString(R.string.insert_username));
+            insName.setText(user);
+        }
 
         btnGoTo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user = insName.getText().toString().replace(" ", "");
+                user = insName.getText().toString().replace(" ", "");
 
-                if(user.isEmpty()) {
+                if(user.isEmpty() || user.length() > 10) {
                     Animation shake = AnimationUtils.loadAnimation(ActivityRegister.this, R.anim.shake);
                     btnGoTo.startAnimation(shake);
 
-                    Toast.makeText(getApplicationContext(), R.string.insert_name_toast, Toast.LENGTH_SHORT).show();
+                    if(user.isEmpty()) {
+                        Toast.makeText(getApplicationContext(), R.string.insert_name_toast, Toast.LENGTH_SHORT).show();
+                    }
+                    if(user.length() > 10) {
+                        Toast.makeText(getApplicationContext(), R.string.longUser, Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else {
+                    SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("user", user);
+                    editor.commit();
+
                     Intent i = new Intent(ActivityRegister.this, ActivityRace.class);
 
                     i.putExtra("name", user);
@@ -88,15 +116,6 @@ public class ActivityRegister extends AppCompatActivity {
         super.onDestroy();
 
         Log.i("Activity status", "onDestroy()");
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        Log.i("Activity status", "onSaveInstanceState()");
-
-        outState.putString("", "");
     }
 
 }
