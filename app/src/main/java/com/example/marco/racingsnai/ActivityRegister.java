@@ -2,9 +2,8 @@ package com.example.marco.racingsnai;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
@@ -39,8 +38,8 @@ public class ActivityRegister extends AppCompatActivity {
         Log.i("USER status", user + "");
 
         if(!user.isEmpty()) {
-            title.setText(getString(R.string.welcomeBack) + ", " + user);
-            subTitle.setText(getString(R.string.notYou) + " " + user + "? " + getString(R.string.insert_username));
+            title.setText(String.format("%s, %s", getString(R.string.welcomeBack), user));
+            subTitle.setText(String.format("%s %s? %s", getString(R.string.notYou), user, getString(R.string.insert_username)));
             insName.setText(user);
         }
 
@@ -64,7 +63,7 @@ public class ActivityRegister extends AppCompatActivity {
                     SharedPreferences preferences = getPreferences(MODE_PRIVATE);
                     SharedPreferences.Editor editor = preferences.edit();
                     editor.putString("user", user);
-                    editor.commit();
+                    editor.apply();
 
                     Intent i = new Intent(ActivityRegister.this, ActivityRace.class);
 

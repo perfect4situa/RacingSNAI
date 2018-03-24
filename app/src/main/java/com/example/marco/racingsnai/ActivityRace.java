@@ -2,9 +2,9 @@ package com.example.marco.racingsnai;
 
 import android.content.DialogInterface;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +16,7 @@ public class ActivityRace extends AppCompatActivity {
 
     protected String name;
     protected TextView txtVwInfo;
+    protected boolean flag;
 
     protected ProgressBar pB1;
     protected ProgressBar pB2;
@@ -43,17 +44,6 @@ public class ActivityRace extends AppCompatActivity {
         setContentView(R.layout.activity_race);
 
         Log.i("Activity status", "onCreate()");
-
-        Bundle dataNames = getIntent().getExtras();
-
-        if(dataNames != null) {
-            name = dataNames.getString("name");
-        }
-        else {
-            Toast.makeText(getApplicationContext(), R.string.error_name, Toast.LENGTH_SHORT).show();
-        }
-
-        Toast.makeText(getApplicationContext(), getString(R.string.welcome) + " " + name, Toast.LENGTH_SHORT).show();
 
         assignVariables();
 
@@ -133,6 +123,14 @@ public class ActivityRace extends AppCompatActivity {
         super.onResume();
 
         Log.i("Activity status", "onResume()");
+
+        Bundle dataNames = getIntent().getExtras();
+
+        if(dataNames != null && !flag) {
+            flag = true;
+            name = dataNames.getString("name");
+            Toast.makeText(getApplicationContext(), getString(R.string.welcome) + " " + name, Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -161,6 +159,30 @@ public class ActivityRace extends AppCompatActivity {
         super.onDestroy();
 
         Log.i("Activity status", "onDestroy()");
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBoolean("flagWelcome", flag);
+        outState.putString("val1", numVal1.getText().toString());
+        outState.putString("val2", numVal2.getText().toString());
+        outState.putString("val3", numVal3.getText().toString());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        flag = savedInstanceState.getBoolean("flagWelcome");
+        String val1 = savedInstanceState.getString("val1");
+        String val2 = savedInstanceState.getString("val2");
+        String val3 = savedInstanceState.getString("val3");
+
+        numVal1.setText(val1);
+        numVal2.setText(val2);
+        numVal3.setText(val3);
     }
 
     private void assignVariables() {
