@@ -35,7 +35,6 @@ public class ActivityRegister extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
         user = sharedPreferences.getString("user", "");
-        Log.i("USER status", user + "");
 
         if(!user.isEmpty()) {
             title.setText(String.format("%s, %s", getString(R.string.welcomeBack), user));
