@@ -27,4 +27,7 @@
     <string name="welcomeBack">Bentornato</string>
     <string name="notYou">Non sei</string>
     <string name="longUser">Il tuo nome è troppo lungo</string>
+    <string name="exit">Esci</string>
+    <string name="exitMsg">Sei sicuro di voler uscire?</string>
+    <string name="yesResp">Si</string>
 </resources>

@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RacingSNAI.iml" filepath="$PROJECT_DIR$/RacingSNAI.iml" />
+      <module fileurl="file://C:\Users\Marco\AndroidStudioProjects\TheEnd\RacingSNAI.iml" filepath="C:\Users\Marco\AndroidStudioProjects\TheEnd\RacingSNAI.iml" />
       <module fileurl="file://C:\Users\studente\AndroidStudioProjects\RacingSNAI\RacingSNAI.iml" filepath="C:\Users\studente\AndroidStudioProjects\RacingSNAI\RacingSNAI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TheEnd.iml" filepath="$PROJECT_DIR$/.idea/TheEnd.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

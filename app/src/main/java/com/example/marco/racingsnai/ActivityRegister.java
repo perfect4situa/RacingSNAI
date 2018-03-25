@@ -1,8 +1,10 @@
 package com.example.marco.racingsnai;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -114,6 +116,26 @@ public class ActivityRegister extends AppCompatActivity {
         super.onDestroy();
 
         Log.i("Activity status", "onDestroy()");
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .setTitle(R.string.exit)
+            .setMessage(R.string.exitMsg)
+            .setPositiveButton(R.string.yesResp, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                    System.exit(0);
+                    Intent startMain = new Intent(Intent.ACTION_MAIN);
+                    startMain.addCategory(Intent.CATEGORY_HOME);
+                    startMain.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                    startActivity(startMain);
+                }
+            })
+            .setNegativeButton("No", null).show();
     }
 
 }

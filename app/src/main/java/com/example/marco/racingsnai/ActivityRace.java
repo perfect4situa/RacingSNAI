@@ -38,6 +38,8 @@ public class ActivityRace extends AppCompatActivity {
     protected Button btnMinus2;
     protected Button btnMinus3;
 
+    protected BackgroundTask backgroundTask;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,14 +52,27 @@ public class ActivityRace extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new BackgroundTask().execute();
+                backgroundTask = new BackgroundTask();
+                backgroundTask.execute();
             }
         });
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                new AlertDialog.Builder(ActivityRace.this)
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setTitle(R.string.exit)
+                    .setMessage(R.string.exitMsg)
+                    .setPositiveButton(R.string.yesResp, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                            System.exit(0);
+                        }
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
             }
         });
 
@@ -159,6 +174,23 @@ public class ActivityRace extends AppCompatActivity {
         super.onDestroy();
 
         Log.i("Activity status", "onDestroy()");
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(ActivityRace.this)
+            .setIcon(android.R.drawable.ic_dialog_alert)
+            .setTitle(R.string.exit)
+            .setMessage(R.string.exitMsg)
+            .setPositiveButton(R.string.yesResp, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                    System.exit(0);
+                }
+            })
+            .setNegativeButton("No", null)
+            .show();
     }
 
     @Override
@@ -314,6 +346,7 @@ public class ActivityRace extends AppCompatActivity {
             pB3.setProgress(0);
 
             //Disable bet buttons
+            btnStart.setClickable(false);
             btnReset.setClickable(false);
             btnPlus1.setClickable(false);
             btnPlus2.setClickable(false);
@@ -421,33 +454,32 @@ public class ActivityRace extends AppCompatActivity {
             String res = name + ", " + ris[flagWin[0]] + " " + getString(R.string.win);
 
             //Show results
-            AlertDialog.Builder builder = new AlertDialog.Builder(ActivityRace.this);
-            builder.setTitle(R.string.msg_winner);
-            builder.setMessage("1° " + ris[flagWin[0]] + ",\n2° " + ris[flagWin[1]] + ",\n3° " + ris[flagWin[2]]);
-            builder.setCancelable(false);
-            builder.setPositiveButton(R.string.got_it, new DialogInterface.OnClickListener() {
+            new AlertDialog.Builder(ActivityRace.this)
+                .setTitle(R.string.msg_winner)
+                .setMessage("1° " + ris[flagWin[0]] + ",\n2° " + ris[flagWin[1]] + ",\n3° " + ris[flagWin[2]])
+                .setCancelable(false)
+                .setPositiveButton(R.string.got_it, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     dialog.cancel();
-                    AlertDialog.Builder builder = new AlertDialog.Builder(ActivityRace.this);
-                    builder.setTitle(R.string.msg_win);
-                    builder.setMessage(ris[0] + ": " + Math.round((wins[0])*100.0)/100.0 + " $"
+                    new AlertDialog.Builder(ActivityRace.this)
+                        .setTitle(R.string.msg_win)
+                        .setMessage(ris[0] + ": " + Math.round((wins[0])*100.0)/100.0 + " $"
                             + "\n" + ris[1] + ": " + Math.round((wins[1])*100.0)/100.0 + " $"
                             + "\n" + ris[2] + ": " + Math.round((wins[2])*100.0)/100.0 + " $"
-                            + "\n" + getString(R.string.str_total) + ": " + Math.round((wins[0] + wins[1] + wins[2])*100.0)/100.0);
-                    builder.setCancelable(false);
-                    builder.setPositiveButton(R.string.got_it, new DialogInterface.OnClickListener() {
+                            + "\n" + getString(R.string.str_total) + ": " + Math.round((wins[0] + wins[1] + wins[2])*100.0)/100.0)
+                        .setCancelable(false)
+                        .setPositiveButton(R.string.got_it, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
                         }
-                    });
-                    builder.create().show();
+                    }).show();
                 }
-            });
-            builder.create().show();
+            }).show();
 
             txtVwInfo.setText(res);
 
             //Enable bet buttons
+            btnStart.setClickable(true);
             btnReset.setClickable(true);
             btnPlus1.setClickable(true);
             btnPlus2.setClickable(true);

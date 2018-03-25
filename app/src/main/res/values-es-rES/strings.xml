@@ -25,6 +25,9 @@
     <string name="reset">Reajustar</string>
     <string name="str_total">Ganancia total</string>
     <string name="welcomeBack">Bienvenida de nuevo</string>
-    <string name="notYou">¿ No eres</string>
+    <string name="notYou">¿No eres</string>
     <string name="longUser">Tu nombre es demasiando largo</string>
+    <string name="exit">Salida</string>
+    <string name="exitMsg">¿Estás seguro de que quieres salir?</string>
+    <string name="yesResp">Si</string>
 </resources>
