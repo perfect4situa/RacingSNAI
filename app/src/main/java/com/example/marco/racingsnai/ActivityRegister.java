@@ -22,6 +22,7 @@ public class ActivityRegister extends AppCompatActivity {
     EditText insName;
     Button btnGoTo;
     String user;
+    String ciao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
